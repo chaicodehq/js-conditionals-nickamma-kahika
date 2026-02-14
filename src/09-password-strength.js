@@ -27,4 +27,40 @@
  */
 export function checkPasswordStrength(password) {
   // Your code here
+
+  if( password == null || password.length == 0){
+    return "weak";
+  }
+  let count = 0
+  const hasUpper = /[A-Z]/.test(password);
+  const hasLower = /[a-z]/.test(password);
+  const specialCharRegex = /[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+
+  if(password.length >= 8){
+    count += 1;
+  }
+  if(hasUpper){
+    count += 1;
+  }
+  if(hasLower){
+    count += 1;
+  }
+  if(specialCharRegex){
+    count += 1;
+  }
+  if(hasNumber){
+    count += 1;
+  }
+
+  if(count >=0 && count <=1){
+    return "weak"
+  }else if(count >=2 && count <=3){
+    return "medium"
+  }else if(count == 4){
+    return "strong"
+  }else {
+    return "very strong"
+  }
+
 }

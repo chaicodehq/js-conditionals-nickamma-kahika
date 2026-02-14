@@ -32,4 +32,70 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
+
+  if((size != "small" && size != "medium" && size != "large") || (type != "regular" && type != "latte" && type != "cappuccino" && type != "mocha")){
+    return -1;
+  }
+
+  let ans ;
+
+  if(size == "small"){
+    ans = 3.00;
+    if(type == "regular"){
+      ans += 0.00;
+    }else if(type == "latte"){
+      ans += 1.00;
+    }else if(type == "cappuccino"){
+      ans += 1.50;
+    }else if(type == "mocha"){
+      ans += 2.00;
+    }
+
+    if(extras.whippedCream==true){
+      ans += 0.50;
+    }else if(extras.extraShot == true){
+      ans += 0.75
+    }
+
+  }else if(size == "medium"){
+    ans = 4.00;
+    if(type == "regular"){
+      ans += 0.00;
+    }else if(type == "latte"){
+      ans += 1.00;
+    }else if(type == "cappuccino"){
+      ans += 1.50;
+    }else if(type == "mocha"){
+      ans += 2.00;
+    }
+
+    if(extras.whippedCream==true){
+      ans += 0.50;
+    }else if(extras.extraShot == true){
+      ans += 0.75
+    }
+
+  }else if(size == "large"){
+    ans = 5.00;
+    if(type == "regular"){
+      ans += 0.00;
+    }else if(type == "latte"){
+      ans += 1.00;
+    }else if(type == "cappuccino"){
+      ans += 1.50;
+    }else if(type == "mocha"){
+      ans += 2.00;
+    }
+
+    if(extras.whippedCream==true){
+      ans += 0.50;
+    }
+    if(extras.extraShot == true){
+      ans += 0.75
+    }
+
+  }
+
+  console.log(ans);
+  return ans;
 }
